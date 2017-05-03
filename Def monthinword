@@ -1,0 +1,39 @@
+def monthInWord(MonthWords):
+    
+    if MonthWords == "01" or MonthWords =="1":
+        MonthWords ="January"
+        
+    elif MonthWords =="02" or MonthWords =="2":
+        MonthWords ="February"
+        
+    elif MonthWords =="03" or MonthWords =="3":
+        MonthWords ="March"
+        
+    elif MonthWords =="04" or MonthWords =="4":
+        MonthWords ="April"
+        
+    elif MonthWords =="05" or MonthWords =="5":
+        MonthWords ="May"
+        
+    elif MonthWords =="06" or MonthWords =="6":
+        MonthWords ="June"
+        
+    elif MonthWords =="07" or MonthWords =="7":
+        MonthWords ="July"
+        
+    elif MonthWords =="08" or MonthWords =="8":
+        MonthWords ="August"
+        
+    elif MonthWords =="09" or MonthWords =="9":
+        MonthWords ="September"
+        
+    elif MonthWords =="10":
+        MonthWords ="October"
+        
+    elif MonthWords =="11":
+        MonthWords ="November"
+        
+    elif MonthWords =="12":
+        MonthWords ="December"
+        
+    return MonthWords
