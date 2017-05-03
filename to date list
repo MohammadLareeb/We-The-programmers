@@ -1,0 +1,17 @@
+toDateList = []
+
+trip = input("Choose your trip :[one way OR round way]")
+destination = input("Enter The Destination : ")
+arrival = input("Enter The Arrival : ")
+fromDate = input("Enter the departure date: ")  ##dd/mm/year
+fromDateList = getDateSeperately(fromDate)
+
+if trip == "round way":
+    toDate = input("Enter the arrival date: ")  ##dd/mm/year
+    global toDateList 
+    toDateList = getDateSeperately(toDate)
+    
+classSection = input("Choose your class[Bussiness OR Economy]")
+adults = input("How many adults: ")
+children = input("How many children: ")
+infants = input("How many infants: ")   
