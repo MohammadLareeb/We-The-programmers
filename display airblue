@@ -1,0 +1,23 @@
+def displayAirBlueData(tempAirBlueData, fromDestination, toDestination):
+    
+    print("\n\t AirBlue: \n")
+    
+    firstTrip= tempAirBlueData[0]
+    
+    print(fromDestination + " To "+ toDestination + ": ")
+    
+    for thisFlight in firstTrip:
+        print("Flight No: " + thisFlight[0] + " Depature Time: " + thisFlight[1] + " Arrival Time: " + thisFlight[2] + " Standard price(1 Bag): " + thisFlight[3] + " Premium price(2 bag): " + thisFlight[4])
+    
+    print("\n")
+    
+    if tempAirBlueData[1] is not None:
+        print(toDestination + " To " + fromDestination + ": ")
+        
+        secondTrip = tempAirBlueData[1]
+        
+        for thisFlight in secondTrip:
+            print("Flight No :" + thisFlight[0] + " Depature Time: " + thisFlight[1] + " Arrival Time: " + thisFlight[2] + " Standard price(1 Bag): " + thisFlight[3] + " Premium price(2 bag): " + thisFlight[4])
+        
+    print("\nFor more info, Please visit: ")
+    print(urlAirBlue[0])
