@@ -1,0 +1,89 @@
+def getAirBlueData(trip, fromDestination, toDestination, fromDateYear, fromDateMonth, fromDateDay, toDateYear, toDateMonth, toDateDay, classP, adults, children, infants ):
+
+    ##AIRBLUE TRIP = TT = {RT, OW}
+    
+    tempAirBlueData = []
+    airBlueDataTrip1= []
+    airBlueDataTrip2= []
+    
+    url= "https://www.airblue.com/bookings/flight_selection.aspx?" + "TT=" + trip + "&" + "DC=" + fromDestination + "&" + "AC=" + toDestination + "&" + "AM=" + fromDateYear + "-" + fromDateMonth + "&" + "AD=" + fromDateDay + "&" + "RM=" + toDateYear + "-" + toDateMonth + "&" + "RD=" + toDateDay + "&" + "FL=on" + "&" + "CC=" + classP + "&" + "CD=" + "&" + "PA=" + adults + "&" + "PC=" + children + "&" + "PI=" + infants 
+    urlAirBlue.append(url)
+    
+    #chromeOptions = webdriver.ChromeOptions()
+    #prefs = {"profile.managed_default_content_settings.images":2}
+    #chromeOptions.add_experimental_option("prefs",prefs)
+    #browser = webdriver.Chrome(chrome_options=chromeOptions)
+    
+    browser = webdriver.PhantomJS()
+    
+    browser.get(url)
+
+    requestAirBlue = browser.page_source
+
+
+    browser.quit()
+
+    soupAirBlue = BeautifulSoup(requestAirBlue, 'html.parser')    
+
+    ##THE First flight
+    firstTrip = soupAirBlue.find("table" , {"id" : "trip_1_date_" + fromDateYear + "_" + fromDateMonth + "_" + fromDateDay})
+   
+    for table in firstTrip.find_all("tr", {"class" : "flight-status-ontime first-child last-child"}):
+       
+        tempData = []
+        
+        ##Flight Number
+        flightNumber = table.find("td" , {"class" : "flight"}).get_text()
+        tempData.append(flightNumber.strip())
+
+        ##Departure Time
+        tempData.append(table.find("td" , {"class" : "time leaving"}).get_text())
+
+        ##Arrival Time
+        tempData.append(table.find("td" , {"class" : "time landing"}).get_text())
+
+        ##Standard price (1 bag)
+        tempThis = table.find("td" , {"class" : "family family-ES family-group-Y "})
+        tempData.append(tempThis.find("span").get_text().strip())
+
+        ##Premium Price (2 bags)
+        tempThis = table.find("td" , {"class" : "family family-EP family-group-Y "})
+        tempData.append(tempThis.find("label").get_text().strip())
+        
+        airBlueDataTrip1.append(tempData)
+        
+    
+    tempAirBlueData.append(airBlueDataTrip1)    
+
+    if trip == "RT":
+        
+        ##THE Second flight
+        secondTrip = soupAirBlue.find("table" , {"id" : "trip_2_date_" + toDateYear + "_" + toDateMonth + "_" + toDateDay})
+
+        for table in secondTrip.find_all("tr", {"class" : "flight-status-ontime first-child last-child"}):
+
+            tempData = []
+        
+            ##Flight Number
+            flightNumber = table.find("td" , {"class" : "flight"}).get_text()
+            tempData.append(flightNumber.strip())
+
+            ##Departure Time
+            tempData.append(table.find("td" , {"class" : "time leaving"}).get_text())
+
+            ##Arrival Time
+            tempData.append(table.find("td" , {"class" : "time landing"}).get_text())
+
+            ##Standard price (1 bag)
+            tempThis = table.find("td" , {"class" : "family family-ES family-group-Y "})
+            tempData.append(tempThis.find("span").get_text().strip())
+
+            ##Premium Price (2 bags)
+            tempThis = table.find("td" , {"class" : "family family-EP family-group-Y "})
+            tempData.append(tempThis.find("label").get_text().strip())
+
+            airBlueDataTrip2.append(tempData)
+
+    tempAirBlueData.append(airBlueDataTrip2)
+    
+    return tempAirBlueData
