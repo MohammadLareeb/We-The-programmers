@@ -1,0 +1,27 @@
+def getAirBlueTrip(tripAirBlue):
+    
+    if tripAirBlue == "one way":
+        return "OW"
+    else:
+        return "RT"
+
+def getAirBlueClass(classAirBlue):
+    
+    if classAirBlue == "Economy":
+        return "Y"
+    else:
+        return "C" 
+
+def getAirBlueChildren(childrenAirBlue):
+    
+    if childrenAirBlue == "0":
+        return ""
+    else:
+        return childrenAirBlue
+    
+def getAirBlueInfants(infantsAirBlue):
+    
+    if infantsAirBlue == "0":
+        return ""
+    else:
+        return infantsAirBlue
