@@ -1,0 +1,34 @@
+def getDateSeperately(date):  ##get date in dd/mm/year
+
+    listDate= []
+    word = ""
+    
+    for character in date:
+        if character == '/' :
+            listDate.append(word)
+            word = ""
+        else:
+            word = word + character
+    
+    listDate.append(word)    
+    
+    return listDate
+
+
+def getShortDate(date):
+    
+    if len(date) == 2:
+        thisDate = date[1]
+        return thisDate
+    else:
+        return date
+
+
+def getLongDate(date):
+    
+    thisDate = date
+    
+    if len(date) == 1:
+        thisDate = "0" + date
+    else:
+        return date
