@@ -1,0 +1,48 @@
+def abbrevaition(FlightsAbbreviation):
+    
+    if FlightsAbbreviation == "Lahore" or FlightsAbbreviation == "lahore":
+        FlightsAbbreviation ="LHE"
+        
+    elif FlightsAbbreviation == "Karachi" or FlightsAbbreviation =="karachi":
+        FlightsAbbreviation ="KHI"
+    
+    elif FlightsAbbreviation == "Dubai" or FlightsAbbreviation =="dubai":
+        FlightsAbbreviation ="DXB"
+        
+    elif FlightsAbbreviation == "Abu Dhabi" or FlightsAbbreviation =="abu dhabi":
+        FlightsAbbreviation ="AUH"
+        
+    elif FlightsAbbreviation == "Islamabad" or FlightsAbbreviation =="islamabad":
+        FlightsAbbreviation ="ISB"
+    
+    elif FlightsAbbreviation == "Dammam" or FlightsAbbreviation =="dammam":
+        FlightsAbbreviation ="DMM"
+    
+    elif FlightsAbbreviation == "Jeddah" or FlightsAbbreviation =="jeddah":
+        FlightsAbbreviation ="JED"
+        
+    elif FlightsAbbreviation == "Medina" or FlightsAbbreviation =="medina":
+        FlightsAbbreviation ="MED"
+            
+    elif FlightsAbbreviation == "Multan" or FlightsAbbreviation =="multan":
+        FlightsAbbreviation ="MUX"
+        
+    elif FlightsAbbreviation == "Muscat" or FlightsAbbreviation =="muscat":
+        FlightsAbbreviation ="MCT"
+        
+    elif FlightsAbbreviation == "Peshawar" or FlightsAbbreviation =="peshawar":
+        FlightsAbbreviation ="PEW"
+        
+    elif FlightsAbbreviation == "Rahim Yar Khan" or FlightsAbbreviation =="rahim yar khan":
+        FlightsAbbreviation ="RYK"
+        
+    elif FlightsAbbreviation == "Riyadh" or FlightsAbbreviation =="riyadh":
+        FlightsAbbreviation ="RUH"
+        
+    elif FlightsAbbreviation == "Sharjah" or FlightsAbbreviation =="sharjah":
+        FlightsAbbreviation ="SHJ"
+        
+    elif FlightsAbbreviation == "Sialkot" or FlightsAbbreviation =="sialkot":
+        FlightsAbbreviation ="SKT"
+        
+    return FlightsAbbreviation
